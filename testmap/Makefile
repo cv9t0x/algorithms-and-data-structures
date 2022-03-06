@@ -23,7 +23,7 @@ main.o: main.cpp
 	${CXX} ${CXXFLAGS} main.cpp
 
 clean:
-	${RM} *.o *.txt  *.gch
+	${RM} *.o *.txt  *.gch ${BINARY} *.exe
 
 run: all
 	${BINARY} > map.txt
