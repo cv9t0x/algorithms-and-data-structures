@@ -12,12 +12,23 @@ int main()
   circularBuffer.add(12);
   circularBuffer.add(3);
 
-  circularBuffer.read();
-  circularBuffer.read();
+  // circularBuffer.read();
+  // circularBuffer.read();
 
   circularBuffer.add(7);
+  circularBuffer.add(1220);
+  circularBuffer.add(13);
+  circularBuffer.add(89);
+  circularBuffer.add(661);
 
-  circularBuffer.read();
+  // circularBuffer.read();
+  // circularBuffer.read();
+  // circularBuffer.read();
+  // circularBuffer.read();
+  // circularBuffer.read();
+
+  // circularBuffer.add(7);
+  // circularBuffer.add(1220);
 
   std::cout << circularBuffer;
 

@@ -22,17 +22,18 @@ void CircularBuffer::add(const int data)
 {
   if (isFull())
   {
-    throw new CircularBufferException();
+    if (tail == head)
+    {
+      tail = tail + 1 == size ? 0 : tail + 1;
+    }
+  }
+  else
+  {
+    count += 1;
   }
 
   buffer[head] = data;
-  head += 1;
-  count += 1;
-
-  if (head == size)
-  {
-    head = 0;
-  }
+  head = head + 1 == size ? 0 : head + 1;
 }
 
 int CircularBuffer::read()
@@ -44,11 +45,12 @@ int CircularBuffer::read()
 
   int temp = buffer[tail];
   buffer[tail] = -842150451;
-  tail += 1;
+  tail = tail + 1 == size ? 0 : tail + 1;
   count -= 1;
 
-  if (tail == size)
+  if (count == 0)
   {
+    head = 0;
     tail = 0;
   }
 
