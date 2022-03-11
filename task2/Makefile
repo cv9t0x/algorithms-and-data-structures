@@ -1,6 +1,9 @@
 CXX=g++
 CXXFLAGS=-c -Wall --std=c++11
 
+FILENAME=test.txt
+N=10
+
 DEBUG=
 
 ifeq ($(OS), Windows_NT)
@@ -18,20 +21,20 @@ all: first second
 debug: DEBUG = -g
 
 first: first.o
-	${CXX} first.o -o ${FIRST}
+	${CXX} first.o -o first
+	${FIRST} ${N} ${FILENAME} 
 
 second: second.o
-	${CXX} second.o -o ${SECOND}
+	${CXX} second.o -o second
+	${SECOND} ${FILENAME}
 
 first.o: first.cpp
-	${CXX} ${CXXFLAGS} first.cpp
+	${CXX} ${CXXFLAGS} first.cpp -o first.o
 
 second.o: second.cpp
-	${CXX} ${CXXFLAGS} second.cpp
+	${CXX} ${CXXFLAGS} second.cpp -o second.o
 
 clean:
 	${RM} *.o *.gch ${FIRST} ${SECOND} *.exe *.txt
 
 run: all
-	${FIRST} ${N} ${FILENAME}
-	${SECOND} ${FILENAME}
