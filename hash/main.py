@@ -10,8 +10,6 @@ def hash(str, size=8):
 
 def main():
     print(hash('asdqwerty'))
-    # print(0 % 2, 1 % 2, 2 % 2, 3 % 2)
-    # hash('abcdefgafdifpdsvkbv/zvcczcxvzxc.v')
 
 
 if __name__ == '__main__':
